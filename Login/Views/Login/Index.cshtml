@@ -1,0 +1,134 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        input[type=text], input[type=email], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .form-container {
+            height: 600px;
+            width: 500px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid rgb(62, 56, 125);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <form action="index1.html" id="loginForm" method="post">
+
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" placeholder="Your First Name...">
+            <div id="usernameError" class="error"></div>
+
+
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" placeholder="Your Last Name...">
+
+
+            <label for="gmail">Gmail:</label>
+            <input type="email" id="gmail" name="gmail" placeholder="Your Gmail...">
+            <div id="gmailError" class="error"></div>
+
+
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="pass" placeholder="Your Password...">
+            <div id="passwordError" class="error"></div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let isValid = true;
+
+            // Retrieve input values
+            const FirstName = document.getElementById("fname").value.trim();
+            const LastName = document.getElementById("lname").value.trim();
+            const Gmail = document.getElementById("gmail").value.trim();
+            const Password = document.getElementById("pass").value.trim();
+
+            // Clear previous error messages
+            document.getElementById("usernameError").textContent = "";
+            document.getElementById("gmailError").textContent = "";
+            document.getElementById("passwordError").textContent = "";
+
+            // Validate inputs
+            if (FirstName === "") {
+                document.getElementById("usernameError").textContent = "First name is required.";
+                isValid = false;
+            }
+
+      const gmailRegex = /^[a-zA-Z0-9._%+-]+@@gmail\.com$/;
+            if (Gmail === "") {
+                document.getElementById("gmailError").textContent = "Gmail is required.";
+                isValid = false;
+            } else if (!gmailRegex.test(Gmail)) {
+                document.getElementById("gmailError").textContent = "Please enter a valid Gmail address (e.g., example@gmail.com).";
+                isValid = false;
+            }
+
+
+            if (Password === "") {
+                document.getElementById("passwordError").textContent = "Password is required.";
+                isValid = false;
+            }
+
+            // If valid, show success message
+            if (isValid) {
+                alert("Login successful!");
+            }
+        });
+    </script>
+</body>
+
+</html>
