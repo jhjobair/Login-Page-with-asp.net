@@ -91,18 +91,18 @@
             event.preventDefault();
             let isValid = true;
 
-            // Retrieve input values
+            
             const FirstName = document.getElementById("fname").value.trim();
             const LastName = document.getElementById("lname").value.trim();
             const Gmail = document.getElementById("gmail").value.trim();
             const Password = document.getElementById("pass").value.trim();
 
-            // Clear previous error messages
+            
             document.getElementById("usernameError").textContent = "";
             document.getElementById("gmailError").textContent = "";
             document.getElementById("passwordError").textContent = "";
 
-            // Validate inputs
+            
             if (FirstName === "") {
                 document.getElementById("usernameError").textContent = "First name is required.";
                 isValid = false;
@@ -123,7 +123,7 @@
                 isValid = false;
             }
 
-            // If valid, show success message
+           
             if (isValid) {
                 alert("Login successful!");
             }
