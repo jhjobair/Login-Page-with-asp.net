@@ -63,7 +63,7 @@
 
 <body>
     <div class="form-container">
-        <form action="index1.html" id="loginForm" method="post">
+        <form action="DashBoard.cshtml" id="loginForm" method="post">
 
             <label for="fname">First Name:</label>
             <input type="text" id="fname" name="fname" placeholder="Your First Name...">
@@ -92,7 +92,7 @@
             event.preventDefault();
             let isValid = true;
 
-            
+
             const FirstName = document.getElementById("fname").value.trim();
             const LastName = document.getElementById("lname").value.trim();
             const Gmail = document.getElementById("gmail").value.trim();
@@ -126,7 +126,7 @@
 
            
             if (isValid) {
-                alert("Login successful!");
+                window.location.href = "DashBoard";
             }
         });
     </script>
