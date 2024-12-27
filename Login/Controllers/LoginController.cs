@@ -18,5 +18,10 @@ namespace Login.Controllers
         {
             return View();
         }
+
+        public ActionResult DashBoard_With_Layout()
+        {
+            return View();
+        }
     }
 }

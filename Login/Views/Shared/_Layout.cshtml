@@ -8,7 +8,20 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <style>
+        #dvLeftbBar ul {
+            list-style: none;
+            color: black;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            font-size: larger;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark" style="background: #0d452b !important;">
         <div class="container">
             @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
@@ -24,13 +37,26 @@
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    <div id="dvLeftbBar" style=" background: #6fcca0; width: 200px; position: fixed; left: 0px; top: 56px; bottom: 0px">
+        <div style="padding:5px; color:azure">
+            <ul>
+                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @class = "nav-link" })</li>
+            </ul>
+        </div>
     </div>
+    <div id="DBContent" style=" background: rgba(13, 110, 253, 0.25); position: fixed; left: 200px; top: 56px; bottom: 0px; right: 0px ">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </div>
+   
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
